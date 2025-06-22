@@ -34,6 +34,7 @@ class UserHandler {
       FilterData.processReceivedData(request, ['name', 'age']).then((
         data,
       ) async {
+        print('Received data: $data');
         final name = data['name'];
         final age = data['age'];
 

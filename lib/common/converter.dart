@@ -29,6 +29,7 @@ static Future<Map<String, dynamic>> processReceivedData(Request request, List<St
         }
       }
     }
+    return extractedData;
   } else {
     // Handle JSON body
     final body = await request.readAsString();
@@ -39,9 +40,11 @@ static Future<Map<String, dynamic>> processReceivedData(Request request, List<St
         extractedData[field] = data[field].toString();
       }
     }
+
+    return extractedData;
   }
   
-  return extractedData;
+  
 }
 
 static String _getBoundary(String contentType) {
